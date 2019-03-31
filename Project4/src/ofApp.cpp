@@ -3,43 +3,28 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    for (int i = 0; i < 3; i++) {
-        auto b = Ball();
-        b.init();
+    for (int i = 0; i < 5; i++) {
+        auto b = make_shared<Ball>();
+        b->init();
         balls.push_back(b);
     }
-
-    
-    
-    cam.setupPerspective();
-    cam.enableOrtho();
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    for (int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-            if (i != j) {
-                ofLog() << i << endl;
-                balls[i].update(balls[j]);
-            }
-        }
-    }
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 5; j++)
+			if (i != j) balls[i]->update(balls[j]);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    cam.enableMouseInput();
-    cam.setupPerspective();
-    cam.begin();
-    light.enable();
-    
-    for (int i = 0; i < 3; i++) balls[i].draw();
-    
-    light.disable();
-    cam.end();
+	ofBackground(122, 123, 124);
+
+    for (int i = 0; i < 5; i++) balls[i]->draw();
+
 }
 
 //--------------------------------------------------------------

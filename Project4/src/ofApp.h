@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Ball.hpp"
+#include "../Ball.h"
 
 class ofApp : public ofBaseApp{
 
@@ -9,12 +9,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-    
-        vector<Ball> balls;
-        Ball ball;
-        ofEasyCam cam;
-        ofLight light;
-        ofRectangle viewport;
+		
+		vector<shared_ptr<Ball>> balls;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
