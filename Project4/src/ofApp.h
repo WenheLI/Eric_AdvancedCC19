@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../Ball.h"
+#include "Ball.h"
 
 class ofApp : public ofBaseApp{
 
@@ -11,6 +11,11 @@ class ofApp : public ofBaseApp{
 		void draw();
 		
 		vector<shared_ptr<Ball>> balls;
+    
+        void audioOut( ofSoundBuffer &outBuffer );
+        double phase;
+        ofSoundStream soundStream;
+        int sampleRate = 44100;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
