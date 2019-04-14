@@ -32,6 +32,7 @@ class ofApp : public ofBaseApp{
 		const int PORTS[6] = {8000, 8001, 8002, 8003, 8004, 8005};
 		vector<shared_ptr<ofxOscReceiver>> receivers;
 		vector<shared_ptr<ofPoint>> points;
+		vector<shared_ptr<ofColor>> colors;
 
 		int prev = NULL;
 		ofImage img;
